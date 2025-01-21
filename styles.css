@@ -1,0 +1,80 @@
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #E1E5EE;
+    color: #2A324B;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2A324B;
+    padding: 10px;
+    border-radius: 5px;
+    ;
+}
+
+.tabs ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.tabs li {
+    margin: 0 10px;
+}
+
+.tabs button {
+    background: none;
+    border: none;
+    color: #E1E5EE;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tabs button.active {
+    background-color: #58699D;
+    color: #fff;
+}
+
+.tabs button:hover {
+    background-color: #58699D;
+    color: #fff;
+}
+
+.content {
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #58699D;
+    border-radius: 5px;
+}
+
+.content h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.content p {
+    margin-bottom: 10px;
+}
+
+.content a {
+    color: #58699D;
+    text-decoration: none;
+    font-weight: 600;
+}
