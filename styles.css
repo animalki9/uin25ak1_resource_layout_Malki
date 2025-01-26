@@ -1,25 +1,16 @@
-
 body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: 'Montserrat';
     background-color: #E1E5EE;
     color: #2A324B;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    margin-left: 150px;
+    margin-top: 150px;
+    max-width: 1000px;
 }
 
 .tabs {
     display: flex;
-    justify-content: space-between;
-    background-color: #2A324B;
-    padding: 10px;
-    border-radius: 5px;
-    ;
+    justify-content: flex-start;
+    background-color: transparent;
 }
 
 .tabs ul {
@@ -27,54 +18,30 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-}
-
-.tabs li {
-    margin: 0 10px;
+    gap: 12px;
 }
 
 .tabs button {
-    background: none;
+    background: #2A324B;
     border: none;
     color: #E1E5EE;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    font-size: 13px;
+    font-weight: 900;
+    padding: 17px 63px;
+    justify-content: center;
+    white-space: nowrap;
+    text-transform: bold;
 }
 
 .tabs button.active {
-    background-color: #58699D;
-    color: #fff;
-}
-
-.tabs button:hover {
-    background-color: #58699D;
-    color: #fff;
+    background-color: #fff;
+    color: #2A324B;
 }
 
 .content {
     background: #fff;
-    padding: 20px;
-    margin-top: 20px;
-    border: 1px solid #58699D;
-    border-radius: 5px;
-}
-
-.content h1 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.content p {
-    margin-bottom: 10px;
-}
-
-.content a {
-    color: #58699D;
-    text-decoration: none;
-    font-weight: 600;
+    padding: 40px;
+    font-size: 14px;
+    padding-left: 60px;
+    min-height: 250px;
 }

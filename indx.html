@@ -6,28 +6,24 @@
     <title>Ressurser</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <script src="ressurser.js" defer></script> <!-- Make sure this file contains the `resources` array -->
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
         <nav class="tabs">
             <ul>
-                <li><button class="active">HTML</button></li>
-                <li><button>CSS</button></li>
-                <li><button>JavaScript</button></li>
-                <li><button>React</button></li>
-                <li><button>Sanity and headless CMS</button></li>
+                <li><button class="category-btn" data-category="HTML">HTML</button></li>
+                <li><button class="category-btn" data-category="CSS">CSS</button></li>
+                <li><button class="category-btn" data-category="JavaScript">JavaScript</button></li>
+                <li><button class="category-btn" data-category="React">React</button></li>
+                <li><button class="category-btn" data-category="Sanity and headless CMS">Sanity and headless CMS</button></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section class="content">
-            <h1>HTML</h1>
-            <p>HTML står for HyperText Markup Language, og er et strukturspråk som brukes for å lage strukturer til nettside- og applikasjonsgrensesnitt.</p>
-            <ul>
-                <li><a href="https://www.w3schools.com/html/">W3Schools</a></li>
-                <li><a href="https://html.spec.whatwg.org/multipage/">HTML Living standard</a></li>
-                <li><a href="https://html.com/">HTML.com Tutorials</a></li>
-            </ul>
+        <section class="content" id="content">
+            <!-- Dynamically populated content based on category will appear here -->
         </section>
     </main>
 </body>

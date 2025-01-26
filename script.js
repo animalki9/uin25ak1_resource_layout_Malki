@@ -1,53 +1,51 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const tabsMenu = document.getElementById("tabs-menu");
-    const content = document.getElementById("content");
+// Funksjon for å oppdatere innhold når en kategori blir klikket
+function updateCategoryContent(category) {
+    const selectedResource = resources.filter((resource) => resource.category === category);
 
-    // Funksjon for å vise en kategori
-    const displayCategory = (category) => {
-        const { text, sources } = resources.find((res) => res.category === category);
+    if (selectedResource.length > 0) {
+        const resource = selectedResource[0];
+        const sourcesHTML = resource.sources
+            .map(
+                (source) =>
+                    `<li><a href="${source.url}" target="_blank">${source.title}</a></li>`
+            )
+            .join("");
+
+        document.getElementById("content").innerHTML = `
+            <article>
+                <h2>${resource.category}</h2>
+                <p>${resource.text}</p>
+                <ul>${sourcesHTML}</ul>
+            </article>
+        `;
+    } else {
+        console.error(`Category not found: ${category}`);
+    }
+}
+
+// Hent alle knappene og legg til eventlistener
+const buttons = Array.from(document.querySelectorAll(".category-btn"));
+
+// Legg til eventlistener på hver knapp for kategorinavigasjon
+buttons.forEach((button, index) => {
+    button.addEventListener("click", function () {
+        const category = button.dataset.category;
+
+        // Fjern "active"-klassen fra alle knapper
+        buttons.map((btn) => btn.classList.remove("active"));
+
+        // Legg til "active"-klassen på den klikkede knappen
+        button.classList.add("active");
 
         // Oppdater innholdet
-        content.innerHTML = `
-            <h1>${category}</h1>
-            <p>${text}</p>
-            <ul>
-                ${sources
-                    .map(
-                        (source) => `
-                    <li>
-                        <a href="${source.url}" target="_blank">${source.title}</a>
-                    </li>
-                `
-                    )
-                    .join("")}
-            </ul>
-        `;
-    };
-
-    // Bygg fanemenyen
-    resources.forEach((resource, index) => {
-        const tab = document.createElement("li");
-        tab.innerHTML = `<button class="${index === 0 ? "active" : ""}" data-category="${resource.category}">
-            ${resource.category}
-        </button>`;
-        tabsMenu.appendChild(tab);
+        updateCategoryContent(category);
     });
-
-    // Legg til klikkhendelser for fanene
-    tabsMenu.addEventListener("click", (event) => {
-        if (event.target.tagName === "BUTTON") {
-            // Fjern "active" fra alle knapper
-            document.querySelectorAll(".tabs button").forEach((btn) => btn.classList.remove("active"));
-
-            // Legg til "active" på den klikkede knappen
-            event.target.classList.add("active");
-
-            // Vis innhold for valgt kategori
-            const category = event.target.getAttribute("data-category");
-            displayCategory(category);
-        }
-    });
-
-    // Vis den første kategorien som standard
-    displayCategory(resources[0].category);
 });
+
+// Sett den første knappen som aktiv og oppdater innholdet
+buttons.filter((button, index) => index === 0).map((button) => {
+    button.classList.add("active");
+    updateCategoryContent(button.dataset.category);
+});
+//buttons[0].classList.add("active");
+//updateCategoryContent(buttons[0].dataset.category);
