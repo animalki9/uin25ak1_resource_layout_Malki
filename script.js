@@ -1,7 +1,9 @@
 // Hent alle knappene og legg til eventlistener
+//https://stackoverflow.com/questions/48247532/create-an-array-of-buttons-from-javascript-array
 const buttons = Array.from(document.querySelectorAll(".category-btn"));
 
 // Legg til eventlistener på hver knapp for kategorinavigasjon
+//https://stackoverflow.com/questions/70856440/addeventlistener-to-all-buttons-using-foreach
 buttons.forEach((button, index) => {
     button.addEventListener("click", function () {
         const category = button.dataset.category;
@@ -26,6 +28,7 @@ buttons.filter((button, index) => index === 0).map((button) => {
 //updateCategoryContent(buttons[0].dataset.category);
 
 // Funksjon for å oppdatere innhold når en kategori blir klikket
+//https://stackoverflow.com/questions/16948498/wordpress-update-category-function
 function updateCategoryContent(category) {
     const selectedResource = resources.filter((resource) => resource.category === category);
 
@@ -49,5 +52,3 @@ function updateCategoryContent(category) {
         console.error(`Category not found: ${category}`);
     }
 }
-
-
